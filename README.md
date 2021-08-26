@@ -2,4 +2,5 @@
 HDLBits website practices
 
 ## 筆記區
-1. input
+(一). 基本宣告
+  1. 
