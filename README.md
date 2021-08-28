@@ -15,6 +15,7 @@ HDLBits website practices
     z,Z: High Impendence(高阻抗)。 
   
   2. 連接線Net
+
     * 沒有記憶性
     * 預設值為z
     * 不允許兩個wire連在一起(若型態為wand/wor例外)
