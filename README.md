@@ -62,3 +62,28 @@ HDLBits website practices
     <<, >>, <<<, >>>: 邏輯左移、邏輯右移、算數左移、算數右移。
     &, |, ^, ~: and, or, xor, not。
     &&, ||: 邏輯and, 邏輯or。
+
+(三). Vector
+  1. Vectors
+
+    def: 一組wire組合而成的集合向量。
+    eq: 
+      wire[7:0] w;       // 表示為1個 8bit大小的訊號。
+      assign w0 = w[0]   // 取出最低位元(0)的wire信號。
+      
+      wire[99:0] w;
+      assign out = w[10] // 取出某個數的信號。
+      
+      wire[7:0] x,y;     // 宣告多個變數為8bit向量。
+      
+  2. Declaring Vertors
+
+    eq:
+      output reg [0:0] y;   // 1-bit reg that is also an output port (this is still a vector)
+      input wire [3:-2] z;  // 6-bit wire input (negative ranges are allowed)
+    eq: (Implicit nets)
+      assign a = 3'b101;  // a = 101
+      assign b = a;       // b =   1  implicitly-created wire
+      assign c = b;       // c = 001  <-- bug
+      my_module i1 (d,e); // d and e are implicitly one-bit wide if not declared.
+                          // This could be a bug if the port was intended to be a vector.
