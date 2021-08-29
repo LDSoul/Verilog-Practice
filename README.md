@@ -76,14 +76,10 @@ HDLBits website practices
       
       wire[7:0] x,y;     // 宣告多個變數為8bit向量。
       
-  2. Declaring Vertors
-
+  2. Implicit nets
+    def: 把位宣告的(位設置的)變數，被附加上某個宣告並設置數值的變數。
     eq:
-      output reg [0:0] y;   // 1-bit reg that is also an output port (this is still a vector)
-      input wire [3:-2] z;  // 6-bit wire input (negative ranges are allowed)
-    eq: (Implicit nets)
-      assign a = 3'b101;  // a = 101
-      assign b = a;       // b =   1  implicitly-created wire
-      assign c = b;       // c = 001  <-- bug
-      my_module i1 (d,e); // d and e are implicitly one-bit wide if not declared.
-                          // This could be a bug if the port was intended to be a vector.
+      wire[2:0] a,c;      
+      assign a = 3'b101   // a=101
+      assign b = a;       // b=1 (implicitly)
+      assign c = b;       // c=101 (u有Bug)
