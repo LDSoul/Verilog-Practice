@@ -62,6 +62,9 @@ HDLBits website practices
     <<, >>, <<<, >>>: 邏輯左移、邏輯右移、算數左移、算數右移。
     &, |, ^, ~: and, or, xor, not。
     &&, ||: 邏輯and, 邏輯or。
+    
+    * Bitwise Operators: 將兩個N-bit vectors對於每個bit去做相同運算，並且產生N-bit輸出(a|b)。
+    * Logical Operators: 將每個向量當作是boolean(true = non-zero, false = zero)，並且產生1-bit輸出(a||b)。
 
 (三). Vector
   1. Vectors
