@@ -98,3 +98,18 @@ HDLBits website practices
     sol: 
       assign out = {in[0], in[1], in[2], in[3], in[4], in[5], in[6], in[7]};
       or assign {out[0],out[1],out[2],out[3],out[4],out[5],out[6],out[7]} = in;
+      
+  4. Replication & sign-extending
+
+    sign-extending: 
+      input [7:0] in;
+      output [31:0] out;
+      將原本8bit之input，加上符號值丟入output
+      (eq, 0101(5): 最高位元為0，所以符號表示為: 00000101)
+      (eq, 1101(-3): 最高位元為1，所以符號表示為: 11111101)
+    
+    Replication: 
+      {5{1'b1}}           // 5'b11111 (or 5'd31 or 5'h1f)
+      {2{a,b,c}}          // {a,b,c,a,b,c}
+      {3'd5, {2{3'd6}}}   // 9'b101_110_110
+    
