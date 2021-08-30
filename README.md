@@ -89,3 +89,12 @@ HDLBits website practices
       assign c = b;       // c=101 (有Bug)
       my_module i1 (d,e); // d and e are implicitly one-bit wide if not declared.
                           // This could be a bug if the port was intended to be a vector.
+
+  3. Reversal
+    
+    eq: 
+      input [7:0] in;
+      output [7:0] out;
+    sol: 
+      assign out = {in[0], in[1], in[2], in[3], in[4], in[5], in[6], in[7]};
+      or assign {out[0],out[1],out[2],out[3],out[4],out[5],out[6],out[7]} = in;
