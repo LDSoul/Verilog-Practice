@@ -118,5 +118,8 @@ HDLBits website practices
   1. 連結module
 
     將信號連結到module的port上有兩方法
-    * mod_a instance1 ( wa, wb, wc );                   //  by position
-    * mod_a instance2 ( .out(wc), .in1(wa), .in2(wb) ); // by name
+    * by position
+      mod_a instance1 ( wa, wb, wc );                   // 實體化一個新的mod_a模組，然後將wa信號連到mod_a的模組第一個端口(in1)、wb連到in2以此類推。(須注意端口順序)
+                                                        // 缺點: 當模組的port發生變化，所有實體化的模組也要跟著改變到匹配的port。
+    * by name
+      mod_a instance2 ( .out(wc), .in1(wa), .in2(wb) ); // 優點: 就算port發生變化，也能正確保持port連結。(端口順序無關聯)
