@@ -113,7 +113,7 @@ HDLBits website practices
       {2{a,b,c}}          // {a,b,c,a,b,c}
       {3'd5, {2{3'd6}}}   // 9'b101_110_110
     
-(四). modules
+(四). Modules
 
   1. 連結module
 
@@ -123,3 +123,14 @@ HDLBits website practices
                                                         // 缺點: 當模組的port發生變化，所有實體化的模組也要跟著改變到匹配的port。
     * by name
       mod_a instance2 ( .out(wc), .in1(wa), .in2(wb) ); // 優點: 就算port發生變化，也能正確保持port連結。(端口順序無關聯)
+
+  2. 4-to-1 Multiplexer
+
+    always@(w3 or w2 or w1 or d or sel) begin
+   		case (sel)
+    		2'b00   : q = d;
+    		2'b01   : q = w1;
+    		2'b10   : q = w2;
+    		default : q = w3;
+   		endcase
+  	end
