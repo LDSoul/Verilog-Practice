@@ -113,3 +113,10 @@ HDLBits website practices
       {2{a,b,c}}          // {a,b,c,a,b,c}
       {3'd5, {2{3'd6}}}   // 9'b101_110_110
     
+(四). modules
+
+  1. 連結module
+
+    將信號連結到module的port上有兩方法
+    * mod_a instance1 ( wa, wb, wc );                   //  by position
+    * mod_a instance2 ( .out(wc), .in1(wa), .in2(wb) ); // by name
