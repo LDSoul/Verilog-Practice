@@ -126,11 +126,10 @@ HDLBits website practices
 
   2. 4-to-1 Multiplexer
 
-    always@(w3 or w2 or w1 or d or sel) begin
-   		case (sel)
-    		2'b00   : q = d;
-    		2'b01   : q = w1;
-    		2'b10   : q = w2;
-    		default : q = w3;
-   		endcase
-  	end
+    always @(*)		// Combinational always block
+		  case(sel)
+			  2'h0: q = d;
+			  2'h1: q = o1;
+			  2'h2: q = o2;
+			  2'h3: q = o3;
+		  endcase
