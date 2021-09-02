@@ -133,3 +133,52 @@ HDLBits website practices
 			  2'h2: q = o2;
 			  2'h3: q = o3;
 		  endcase
+
+(五). Conditional
+
+  1. 判斷式: assign intermediate_result1 = compare? true: false;
+
+	intermediate_result1: 被運算值。
+	compare: 判斷是否相等。
+	true: 是則做此事。
+	
+	eq: 
+		input [7:0] a,b;
+		wire [7:0] min1,min2;
+    		assign min1 = a;
+    		assign min2 = (b < min1) ? b : min1;
+		
+		
+(六). Reduction
+
+  1. 類似for的減寫法
+
+	eq: 
+		input [99:0] in,
+   		output out_and,
+		assign out_and = & in[99:0]; // 將in[0]~in[99]都做AND。
+		
+(七). For-Loop
+
+  1. 簡單迴圈寫法
+
+	eq: (reversal)
+		integer i,j;
+    		always @(*) begin
+        		for(i=0; i<100; i++) begin
+            			out[i] = in[99-i];
+        		end
+    		end
+		
+(八). Generate(loop, case, conditional)
+
+  1. loop
+
+	generate
+        	genvar i; // genvar為循環變數，必須使用genvar宣告，只可在generate內使用。
+        	assign cout = cin2[396];
+        	for(i=4;i<400;i+=4) begin: adder // adder為generate所需標籤，用來表示循環之實體化名稱
+            	bcd_fadd bcd(a[i+3:i], b[i+3:i], cin2[i-4], cin2[i], sum[i+3:i]);
+        	end
+    	endgenerate
+	
