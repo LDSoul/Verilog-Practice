@@ -6,7 +6,7 @@ HDLBits website practices
   1. module: 起始宣告，裡面放置input、output腳位，最後面需搭配endmodule。
   2. wire: 訊號線，宣告wire即可做拉線動作(input、output、inout預設值都是wire)。
   3. assign: 要求指定的訊號線做運算，對象須為wire格式。
-
+  4. reg: 宣告變數，非wire一定要用reg宣告。
 
 (二). 資料型態
   1. 資料狀態
